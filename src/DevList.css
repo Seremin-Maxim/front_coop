@@ -1,8 +1,17 @@
 .devlist__items {
-    grid-column: 10 span;
+    /* grid-column: 10 span;
     display: flex;
     flex-wrap: wrap;
     
-    padding-left: 20px;
+    padding-left: 20px; */
     /* justify-content: center; */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* This will limit to maximum 5 cards in a row */
+    gap: 20px;
+    padding: 20px;
+    margin-left: auto; /* Add left margin */
+    margin-right: auto; /* Add right margin */
+    max-width: 70%; /* Limit the width of the grid */
 }
+
+

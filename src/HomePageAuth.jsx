@@ -30,14 +30,13 @@ const HomePageAuth = () => {
     <div>
         <NavBarAuth/>
         <div className="home-container">
-            <div className='container-plug'>
-              <div className="homepage__container">
+              <div className="">
                 <DeviceList category_id={category_id}/>
               </div>              
-            </div>
             {/*доп. контент главной страницы */}
         </div>
     </div>
+
   );
 };
 

@@ -1,21 +1,20 @@
+
 .home-container {
   padding: 20px;
   margin-top: 0;
   padding-top: 0;
 }
-
-header {
-  width: 100%; /* Расширение на всю ширину экрана */
-  position: fixed; /* Приклеиваем к верхней границе */
-  top: 0;
-  left: 0;
-  background-color: #FFAE36;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ced4da;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* 
+.homepage__container {
+   display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-left: auto; 
+  margin-right: auto;
+  max-width: 80%; 
+  margin-top: 30px;
+  margin-left: 0;
+  
+} */
 
 h1 {
   margin: 0;
@@ -47,14 +46,3 @@ nav a:hover {
   color: #fff;
 }
 
-.homepage__container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  
-  /* display:flex;
-  flex-wrap: wrap; */
-}
-.container-plug{
-margin-top: 0px;
-margin-left: 0;
-}

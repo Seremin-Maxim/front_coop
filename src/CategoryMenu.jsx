@@ -15,7 +15,7 @@ const CategoryMenu = () => {
           try {
             const response = await Axios.get("/api/getAllCategories");
             setCategories(response.data);
-            console.log(categories);
+            //console.log(categories);
           } catch (error) {
             console.error('Ошибка при получении профиля пользователя:', error);
           }
@@ -26,7 +26,7 @@ const CategoryMenu = () => {
       return (
         <div>
           <div>{token ? <NavBarAuth/> : <NavBar/>}</div>
-          <h2 className='headName'>Каталог товаров</h2>
+          <h2 className='headName'>Каталог</h2>
         <div className="category-grid">
           {categories.map((category) => (
             <Link to={`/categories/${category.id}`} key={category.id}>

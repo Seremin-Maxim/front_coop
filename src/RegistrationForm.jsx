@@ -87,13 +87,14 @@ function RegistrationForm() {
     }
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      // Если токен присутствует, перенаправляем пользователя на страницу профиля
-      navigate('/', { replace: true });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   console.log("token(reg_form) : " + token);
+  //   if (token !== undefined) {
+  //     // Если токен присутствует, перенаправляем пользователя на страницу профиля
+  //     navigate('/', { replace: true });
+  //   }
+  // }, []);
 
   return (
     <div className='registration-container reg'>

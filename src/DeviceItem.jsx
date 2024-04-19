@@ -28,16 +28,17 @@ const DeviceItem = ({ product }) => {
   }, [product.id]);
 
   return (
-    <Col md={2}>
-      <div className='cardItem'>
+
+      <div className='item-card'>
         <Link to={`/item/${product.id}`}>
-          <Image width={180} height={200} src={pic1} />
+          <Image src={pic1} />
           <div>{prod_info.title}</div> 
           <div>Стоимость: {product.price} руб.</div>
           <div>В наличии: {product.stock}</div>
         </Link>
       </div>
-    </Col>
+    
+    
   );
 };
 

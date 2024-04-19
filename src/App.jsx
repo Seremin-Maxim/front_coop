@@ -15,6 +15,7 @@ import Item_plug from './Item_plug';
 import DeviceItemPage from './DeviceItemPage';
 import TestingPage from './testingPage';
 import CategoryMenu from './CategoryMenu';
+import BrandMenu from './BrandMenu';
 const App = () => {
   const [data, setData] = useState("");
 
@@ -38,13 +39,14 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path='/categories/:category_id' element={<HomePageAuth  />}/>
         {/* <Route path='/home' element={<HomePageAuth  />}/> */}
-        <Route path='/item' element={<Item_plug  />}/>
+        {/* <Route path='/item' element={<Item_plug  />}/> */}
         <Route path='/item/:product_id' element={<DeviceItemPage  />}/>
         {/* <Route path='/home/category/:category_id' element={<HomePage  />}/> */}
         <Route path="/" element={<HomePageAuth />} />
         {/* <Route path="/:category_id" element={<HomePage />} /> */}
         <Route path='/categories' element={<CategoryMenu  />}/>
-      
+        <Route path='/brands' element={<BrandMenu  />}/>
+        <Route path='/brands/:brand_id' element = {<HomePageAuth/>}/>
     </Routes>
   </Router>
   );
