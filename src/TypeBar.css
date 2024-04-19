@@ -1,0 +1,27 @@
+/* TypeBar.css */
+
+/* Set the width of the TypeBar Col to 100% */
+.col-type-bar {
+  width: 100%;
+}
+
+/* Align the TypeBar to the left */
+.list-group {
+  text-align: left;
+}
+
+/* Set margin to push TypeBar to the left */
+.col-type-bar {
+  margin-left: 0;
+}
+
+/* Optional: Add styles for longer rows */
+.list-group-item {
+  padding: 20px; /* Adjust padding for longer rows */
+}
+.list{
+  grid-column: 2 span;
+  padding-top: 5vh;
+}
+
+

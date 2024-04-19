@@ -1,0 +1,8 @@
+.devlist__items {
+    grid-column: 10 span;
+    display: flex;
+    flex-wrap: wrap;
+    
+    padding-left: 20px;
+    /* justify-content: center; */
+}

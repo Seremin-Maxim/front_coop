@@ -1,0 +1,13 @@
+.part{
+    display: flex;
+    flex-wrap: wrap; /* Добавляем перенос элементов на новую строку */
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 30px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}

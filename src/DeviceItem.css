@@ -1,0 +1,10 @@
+.cardItem{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    cursor: pointer;
+    padding: 40px;
+}

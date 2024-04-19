@@ -1,0 +1,113 @@
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* This will limit to maximum 5 cards in a row */
+  gap: 20px;
+  padding: 20px;
+  margin-left: auto; /* Add left margin */
+  margin-right: auto; /* Add right margin */
+  max-width: 70%; /* Limit the width of the grid */
+}
+ 
+  .category-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    color : black;
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .category-card h2 {
+    font-size: 17px;
+    margin: 0;
+    padding: 10px;
+  }
+   
+  .category-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
+    transform: scale(1.05); 
+    z-index: 1; 
+  }
+  .headName{
+    padding-top: 20px;
+  }
+/* 
+   .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f0f0f0; 
+  }
+  
+.category-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  .category-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+  }
+  
+  .category-card h2 {
+    font-size: 35px;
+    margin: 0;
+    padding: 10px;
+    color: #333; 
+  }
+
+  /* .category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    max-width: 1200px; 
+    padding: 0 50px; 
+  }
+  
+  .category-card {
+    width: calc(20% - 20px); 
+    height: calc(20% - 20px);
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease; 
+  }
+  
+  .category-card:hover {
+    transform: scale(1.05); 
+    z-index: 1; 
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .category-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  } */
+  
+  
+  

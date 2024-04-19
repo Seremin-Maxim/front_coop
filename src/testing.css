@@ -1,0 +1,62 @@
+.common{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 20px;
+    flex-wrap:wrap;
+}
+.btn-sub {
+    background-color: #fff; /* Цвет фона кнопки */
+    border: 1px solid #000; /* Рамка кнопки */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer; /* Изменение курсора при наведении */
+}
+
+/* Стиль кнопки "Назад" при наведении */
+.btn-sub:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+}
+.input-brand-name {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.Descr{
+    font-size: 40px;
+    font-weight: bold;
+}
+.create-labels{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.form-creators{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.btn-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff; /* Цвет фона кнопки */
+    border: 1px solid #000; /* Рамка кнопки */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    margin-top: 15px;
+    margin-left: 15px;
+    cursor: pointer; /* Изменение курсора при наведении */
+}
+
+/* Стиль кнопки "Назад" при наведении */
+.btn-back:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+}

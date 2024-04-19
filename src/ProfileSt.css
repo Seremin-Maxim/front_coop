@@ -1,0 +1,90 @@
+.mainProf {
+    display: flex;
+    flex-wrap: wrap; /* Добавляем перенос элементов на новую строку */
+    justify-content: space-between;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #474747;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .designations {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-basis: 50%; /* Делим на два столбца */
+    padding: 10px;
+  }
+  
+  .values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-basis: 50%; /* Делим на два столбца */
+    padding: 10px;
+  }
+  
+  .values p {
+    margin: 0;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .mainProf button {
+    background-color: #ffffff;
+    border: 2px solid #00ba06;
+    color: #000; /* Цвет текста по умолчанию */
+    transition: border-color 0.3s, color 0.3s; /* Плавный переход */
+}
+
+/* Стиль кнопки при наведении */
+.mainProf button:hover {
+    border-color: #7dd684; /* Затемнение рамки */
+    color: #676767; /* Осветление текста */
+}
+
+.btn-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff; /* Цвет фона кнопки */
+    border: 1px solid #000; /* Рамка кнопки */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    margin-top: 15px;
+    margin-left: 15px;
+    cursor: pointer; /* Изменение курсора при наведении */
+}
+
+/* Стиль кнопки "Назад" при наведении */
+.btn-back:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+}
+
+.btn-out {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid red;
+    color: red;
+    padding: 10px 15px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Style for the button on hover */
+.btn-out:hover {
+    background-color: #ddd;
+    border-color: #af0101;
+    color:#af0101
+}
