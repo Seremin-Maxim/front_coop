@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Link,useNavigate } from 'react-router-dom';
 import "./testing.css"
+import NavBarAuth from './navbarHpAuth';
 function TestingPage() {
   const navigate = useNavigate();
 const [brand, setFormDataBrand] = useState({
@@ -257,9 +258,7 @@ const [brand, setFormDataBrand] = useState({
 
   return (
     <div className='common'>
-      <Link to='/home'>
-        <button className='btn-back'>Назад</button>
-      </Link>
+      <NavBarAuth/>
       <div className='Descr'>Admin Board</div>
       <form onSubmit={handleSubmitBrand} className='form-creators'>
           <div className='create-labels'>Бренд</div>

@@ -29,7 +29,7 @@ const CategoryMenu = () => {
           <h2 className='headName'>Каталог товаров</h2>
         <div className="category-grid">
           {categories.map((category) => (
-            <Link to={token ? `/home/${category.id}` : `/${category.id}`} key={category.id}>
+            <Link to={`/categories/${category.id}`} key={category.id}>
             <div className="category-card" >
               <img src={pic1} alt={category.name} />
               <h2>{category.name}</h2>

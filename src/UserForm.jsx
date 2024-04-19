@@ -25,7 +25,7 @@ function UserForm() {
   return (
     <div>
       <div>
-        <Link to='/home'>
+        <Link to='/'>
           <button style={{position:'absolute', top:0, left:0, margin:15}}>Назад</button>
         </Link>
       </div>

@@ -36,14 +36,14 @@ const App = () => {
         <Route path="/signup" element={<RegistrationForm />} />
         {/* <Route path="/profile" element={<UserProfile />} /> */}
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path='/home/:category_id' element={<HomePageAuth  />}/>
-        <Route path='/home' element={<HomePageAuth  />}/>
+        <Route path='/categories/:category_id' element={<HomePageAuth  />}/>
+        {/* <Route path='/home' element={<HomePageAuth  />}/> */}
         <Route path='/item' element={<Item_plug  />}/>
         <Route path='/item/:product_id' element={<DeviceItemPage  />}/>
         {/* <Route path='/home/category/:category_id' element={<HomePage  />}/> */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/:category_id" element={<HomePage />} />
-        <Route path='home/categories' element={<CategoryMenu  />}/>
+        <Route path="/" element={<HomePageAuth />} />
+        {/* <Route path="/:category_id" element={<HomePage />} /> */}
+        <Route path='/categories' element={<CategoryMenu  />}/>
       
     </Routes>
   </Router>

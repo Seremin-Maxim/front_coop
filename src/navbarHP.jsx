@@ -6,6 +6,7 @@ import logo_pic from './assets/logo2.jpeg';
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
     return (
       <div className='shit'>
         <nav>
@@ -18,7 +19,7 @@ const NavBar = () => {
             </a>
 
             <div className="dropdown">
-                <a href="/home/categories">
+                <a href="/categories">
                   <button className="dropbtn">Категории </button>
                 </a>
                 <div className="dropdown-content">
@@ -36,8 +37,17 @@ const NavBar = () => {
             
           </nav>
           <div className="buttons-container">
-              <Link to="/signin" className='login-button'>Вход</Link>
-              <Link to="/signup" className='register-button'>Регистрация</Link>
+            {token ? 
+                <div>
+                  <Link to="/testing" className='login-button'>Admin</Link>
+                  <Link to="/profile" className='login-button'>Профиль</Link>
+                </div> : 
+                <div>
+                  <Link to="/signin" className='login-button'>Вход</Link>
+                  <Link to="/signup" className='register-button'>Регистрация</Link>
+                </div>
+            }
+              
           </div>
     
       </div>

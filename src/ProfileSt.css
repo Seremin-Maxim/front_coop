@@ -10,10 +10,11 @@
     border-radius: 10px;
     background-color: #f9f9f9;
     position: absolute;
-    top: 0;
+    
     left: 50%;
     transform: translateX(-50%);
   }
+
   
   .designations {
     display: flex;
@@ -71,7 +72,7 @@
 
 .btn-out {
     position: absolute;
-    top: 0;
+   
     right: 0;
     background-color: #fff;
     border: 1px solid red;

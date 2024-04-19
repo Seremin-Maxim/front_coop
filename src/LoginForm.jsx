@@ -159,7 +159,7 @@ function LoginForm() {
       localStorage.setItem('id', response.data.id);
       Axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
       //console.log("token log: ", response.data.token);
-      navigate('/home', { replace: true });
+      navigate('/', { replace: true });
     } catch (error) {
       alert('Неправильное имя пользователя или пароль')
       console.log('Full responce from server:', error.response);
@@ -173,7 +173,7 @@ function LoginForm() {
     if (token) {
       // Если токен присутствует, перенаправляем пользователя на страницу профиля
       
-      navigate('/home', { replace: true });
+      navigate('/', { replace: true });
     }
   }, []); // Пустой массив зависимостей означает, что useEffect будет вызываться только при монтировании компонента
 

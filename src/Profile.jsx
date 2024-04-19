@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Link,useNavigate } from 'react-router-dom';
 import './ProfileSt.css';
+import NavBarAuth from './navbarHpAuth';
 function ProfilePage() {
 
   const [profileData, setProfileData] = useState({
@@ -44,9 +45,7 @@ function ProfilePage() {
 
   return (
 <div>
-    <Link to='/home'>
-      <button className='btn-back'>Назад</button>
-    </Link>
+  <NavBarAuth/>
 
     {profileData ? (
        

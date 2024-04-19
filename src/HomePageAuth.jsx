@@ -3,6 +3,7 @@ import './HomePage.css';
 import { useNavigate, useParams} from 'react-router-dom';
 import DeviceList from './DeviceList';
 import NavBarAuth from './navbarHpAuth';
+//import NavBar from './navbarHP';
 
 const HomePageAuth = () => {
     const navigate = useNavigate();
@@ -17,13 +18,13 @@ const HomePageAuth = () => {
     }
     Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     */
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            // Если токена нет, перенаправляем пользователя на главную страницу
-            navigate("/", { replace: true });
-        } 
-    }, []);
+    // useEffect(() => {
+    //     const token = localStorage.getItem('token');
+    //     if (!token) {
+    //         // Если токена нет, перенаправляем пользователя на главную страницу
+    //         navigate("/", { replace: true });
+    //     } 
+    // }, []);
 
   return (
     <div>

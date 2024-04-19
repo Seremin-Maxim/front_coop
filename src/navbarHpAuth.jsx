@@ -5,6 +5,7 @@ import logo_pic from './assets/logo2.jpeg';
 
 const NavBarAuth = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
   /*
   useEffect(() => {
       const token = localStorage.getItem('token');
@@ -17,7 +18,7 @@ const NavBarAuth = () => {
     return (
       <div className='shit'>
         <nav>
-            <a href="/home" className="logo ">
+            <a href="/" className="logo ">
               <img src={logo_pic} alt='sos' style={{height: 80, width: 80}}/>
               <div className='logo-text'>
                 <p className="tagline">Slavic</p>
@@ -26,14 +27,14 @@ const NavBarAuth = () => {
 
             </a>
             <div className="dropdown">
-                <a href="/home/categories">
+                <a href="/categories">
                   <button className="dropbtn">Категории </button>
                 </a>
                 <div className="dropdown-content">
-                  <a href="/home/3">Телефоны</a>
-                  <a href="/home/10">Планшеты</a>
-                  <a href="/home/4">Телевизоры</a>
-                  <a href="/home/14">Ноутбуки</a>
+                  <a href="/categories/3">Телефоны</a>
+                  <a href="/categories/10">Планшеты</a>
+                  <a href="/categories/4">Телевизоры</a>
+                  <a href="/categories/14">Ноутбуки</a>
                 </div>
               </div> 
             <ul>
@@ -44,8 +45,16 @@ const NavBarAuth = () => {
             
           </nav>
           <div className="buttons-container">
-              <Link to="/testing" className='login-button'>Admin</Link>
-              <Link to="/profile" className='login-button'>Профиль</Link>
+          {token ? 
+                <div>
+                  <Link to="/testing" className='login-button'>Admin</Link>
+                  <Link to="/profile" className='login-button'>Профиль</Link>
+                </div> : 
+                <div>
+                  <Link to="/signin" className='login-button'>Вход</Link>
+                  <Link to="/signup" className='register-button'>Регистрация</Link>
+                </div>
+            }
           </div>
     
       </div>

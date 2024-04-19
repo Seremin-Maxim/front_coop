@@ -80,7 +80,7 @@ function RegistrationForm() {
 
         Axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
 
-        navigate('/home', { replace: true });
+        navigate('/', { replace: true });
       }
     } catch (error) {
       console.error('Ошибка при отправке данных:', error);
@@ -91,7 +91,7 @@ function RegistrationForm() {
     const token = localStorage.getItem('token');
     if (token) {
       // Если токен присутствует, перенаправляем пользователя на страницу профиля
-      navigate('/home', { replace: true });
+      navigate('/', { replace: true });
     }
   }, []);
 
