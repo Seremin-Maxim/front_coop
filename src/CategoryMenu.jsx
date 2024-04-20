@@ -3,6 +3,7 @@ import Axios from 'axios';
 import './CategoryMenu.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import pic1 from './assets/item_pic.png';
+import pic2 from './assets/category_png.jpeg';
 import { Button } from 'react-bootstrap'; // Импортируйте Button из react-bootstrap
 import NavBarAuth from './navbarHpAuth';
 import NavBar from './navbarHP';
@@ -31,7 +32,7 @@ const CategoryMenu = () => {
           {categories.map((category) => (
             <Link to={`/categories/${category.id}`} key={category.id}>
             <div className="category-card" >
-              <img src={pic1} alt={category.name} />
+              <img src={pic2} alt={category.name} />
               <h2>{category.name}</h2>
             </div>
             </Link>

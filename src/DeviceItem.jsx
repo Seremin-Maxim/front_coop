@@ -5,6 +5,7 @@ import Image from 'react-bootstrap/Image';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import pic1 from './assets/item_pic.png';
+import pic2 from './assets/itemSL.jpeg'
 
 const DeviceItem = ({ product }) => {
   
@@ -31,7 +32,7 @@ const DeviceItem = ({ product }) => {
 
       <div className='item-card'>
         <Link to={`/item/${product.id}`}>
-          <Image src={pic1} />
+          <Image src={pic2} />
           <div>{prod_info.title}</div> 
           <div>Стоимость: {product.price} руб.</div>
           <div>В наличии: {product.stock}</div>

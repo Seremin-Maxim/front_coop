@@ -36,3 +36,7 @@
     transform: scale(1.01); 
     z-index: 1; 
   }
+
+  .item-card div{
+    color: black;
+  }

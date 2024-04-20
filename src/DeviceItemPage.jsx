@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Axios from 'axios';
 import pic1 from './assets/item_pic.png';
 import NavBarAuth from './navbarHpAuth';
-
+import pic2 from './assets/itemSL.jpeg'
 const DeviceItemPage = () => {
   const { product_id } = useParams(); 
   const [prod_info, setDescription] = useState({
@@ -46,7 +46,7 @@ const DeviceItemPage = () => {
       <div className="product-page">
         <div className='product-details'>
           <h2 className="product-title">{prod_info.title}</h2>
-          <Image className="product-image" src={pic1} />
+          <Image className="product-image" src={pic2} />
           <div className="product-price">Стоимость: {product.price}</div>
           <div className="product-sdk">SDK: {product.SDK}</div>
           <div className="product-stock">В наличии: {product.stock}</div>
