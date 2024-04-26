@@ -17,6 +17,7 @@ import TestingPage from './testingPage';
 import CategoryMenu from './CategoryMenu';
 import BrandMenu from './BrandMenu';
 import CardCarousel from './CardCarousel';
+import ShoppingCartPage from './ShoppingCartPage';
 const App = () => {
   const [data, setData] = useState("");
 
@@ -49,6 +50,7 @@ const App = () => {
         <Route path='/brands' element={<BrandMenu  />}/>
         <Route path='/brands/:brand_id' element = {<HomePageAuth/>}/>
         <Route path='/kaka' element={<CardCarousel/>}/>
+        <Route path='/shoppingcart' element={<ShoppingCartPage/>}/>
     </Routes>
   </Router>
   );

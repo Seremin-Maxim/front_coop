@@ -45,10 +45,11 @@ const DeviceItem = ({ product }) => {
         //console.log("ID for SHC : " + customer_id);
         responseSHC = await Axios.post(`/api/shoppingCart/create/${customer_id}`);
         console.log("SUKA");
-        localStorage.setItem("SHC_ID", responseSHC.data.id);
+        localStorage.setItem("sch_id", responseSHC.data.id);
       }
       
       let responseSHC_ID = await Axios.get(`/api/getSCHIDByCustomer/${customer_id}`);
+      localStorage.setItem("sch_id", responseSHC_ID.data.id);
       setSchID(responseSHC_ID.data.id);
       //console.log("id of shc in resp: " + responseSHC.data.id);
       let sch_id_plug = responseSHC_ID.data.id;
