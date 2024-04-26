@@ -1,0 +1,96 @@
+1.) Запросы с использованием одной таблицы.
+
+1. Выборка без использования фразы WHERE. ALL, DISTINCT.
+Использование фразы CASE.
+
+Выборка без использования WHERE
+SELECT ALL name FROM "Customers";
+
+Выборка с использованием DISTINCT
+SELECT ALL name FROM "Brands";  => SELECT DISTINCT name FROM "Brands";
+
+Выборка с использование КЕЙС
+SELECT "SDK", price,                
+    CASE
+        WHEN price < 100 THEN 9999
+        ELSE price
+    END AS new_price FROM "Products";
+
+2. Выборка вычисляемых значений. Использование псевдонимов таблиц.
+
+Вычисляемые значения
+SELECT price, stock, price * stock AS total_cost
+FROM "Products";
+
+Псевдомин
+SELECT name AS username
+FROM "Customers";
+
+
+
+3. Синтаксис фразы WHERE. BETWEEN, IS [NOT] NULL, LIKE, UPPER,
+LOWER. IN, EXISTS.
+
+Использование WHERE & LIKE
+SELECT id, name, phone_number FROM "Customers"
+WHERE name != 'second' AND name NOT LIKE 'n%';
+
+SELECT id, "SDK", price FROM "Products"
+    WHERE price BETWEEN 1 AND 200;
+
+SELECT id, name FROM "Customers"
+    WHERE name IS NOT NULL;
+
+SELECT UPPER(name) FROM "Customers";
+
+SELECT LOWER(name) FROM "Customers";
+
+SELECT id, name FROM "Customers" WHERE id IN (1, 2, 3);
+
+SELECT EXISTS(SELECT * FROM "Customers" WHERE id > 100);
+
+// WHERE EXISTS: вернем всех пользователей, айди которых больше 15, если есть 
+хотя бы 1 пользователь с name = 'second'
+
+SELECT name, id
+FROM "Customers"
+WHERE id > 15 AND EXISTS (
+  SELECT 1
+  FROM "Customers"
+  WHERE name = 'second'
+);
+
+
+4. Выборка с упорядочением. ORDER BY, ASC, DESC.
+
+SELECT id, "SDK", category_id FROM "Products"
+ORDER BY category_id;
+
+SELECT id, "SDK", category_id FROM "Products"
+ORDER BY category_id ASK;
+
+SELECT id, "SDK", category_id FROM "Products"
+ORDER BY category_id DESC;
+
+
+5. Агрегирование данных. Агрегатные SQL-функции (COUNT, SUM, AVG,
+MIN, MAX).
+
+COUNT
+SELECT COUNT(id) FROM "Customers" 
+WHERE id > 10;
+
+SELECT SUM(price) FROM "Products"
+WHERE price < 200;
+
+SELECT AVG(orice) FROM "Products"
+WHERE price > 200;
+
+
+
+6. Агрегирование данных без и с использованием фразы GROUP BY. Фраза
+HAVING.
+
+
+
+

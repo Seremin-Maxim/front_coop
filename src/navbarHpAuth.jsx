@@ -16,8 +16,6 @@ const NavBarAuth = () => {
         setCategories(response.data);
         const responce_brands = await Axios.get("/api/getAllBrands");
         setBrands(responce_brands.data);
-        //console.log(brands);
-        console.log("token: " + token);
 
       } catch (error) {
         console.error('Ошибка при работе навбара:', error);

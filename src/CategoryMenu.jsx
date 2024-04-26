@@ -26,7 +26,7 @@ const CategoryMenu = () => {
       }, []);
       return (
         <div>
-          <div>{token ? <NavBarAuth/> : <NavBar/>}</div>
+          <div>{<NavBarAuth/>}</div>
           <h2 className='headName'>Каталог</h2>
         <div className="category-grid">
           {categories.map((category) => (

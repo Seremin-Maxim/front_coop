@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import './HomePage.css';
-import { useNavigate, useParams} from 'react-router-dom';
+import { useNavigate, useParams, useLocation} from 'react-router-dom';
 import DeviceList from './DeviceList';
 import NavBarAuth from './navbarHpAuth';
 //import NavBar from './navbarHP';
-
+import CardCarousel from './CardCarousel';
 const HomePageAuth = () => {
     const navigate = useNavigate();
     const { category_id } = useParams();
+    const location = useLocation();
+    const path = location.pathname;
+    console.log("path = " + path);
     //const token = localStorage.getItem('token');
 
     /*
@@ -29,11 +32,11 @@ const HomePageAuth = () => {
   return (
     <div>
         <NavBarAuth/>
+        {path == '/' ? <CardCarousel/> : <div/>}
         <div className="home-container">
               <div className="">
                 <DeviceList category_id={category_id}/>
               </div>              
-            {/*доп. контент главной страницы */}
         </div>
     </div>
 
