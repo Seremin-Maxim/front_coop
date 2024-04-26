@@ -10,7 +10,6 @@ import pic2 from './assets/itemSL.jpeg'
 const DeviceItem = ({ product }) => {
   
   const [prod_info, setDescription] = useState({
-    title:'',
     description: ''
   });
   
@@ -33,7 +32,7 @@ const DeviceItem = ({ product }) => {
       <div className='item-card'>
         <Link to={`/item/${product.id}`}>
           <Image src={pic2} />
-          <div>{prod_info.title}</div> 
+          <div>{product.product_name}</div> 
           <div>Стоимость: {product.price} руб.</div>
           <div>В наличии: {product.stock}</div>
         </Link>

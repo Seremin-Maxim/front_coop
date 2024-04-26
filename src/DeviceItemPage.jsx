@@ -19,7 +19,8 @@ const DeviceItemPage = () => {
     category_id:'',
     id:'',
     price:'',
-    stock:''
+    stock:'',
+    product_name:''
   });
   
 
@@ -45,7 +46,7 @@ const DeviceItemPage = () => {
       <NavBarAuth />
       <div className="product-page">
         <div className='product-details'>
-          <h2 className="product-title">{prod_info.title}</h2>
+          <h2 className="product-title">{product.product_name}</h2>
           <Image className="product-image" src={pic2} />
           <div className="product-price">Стоимость: {product.price}</div>
           <div className="product-sdk">SDK: {product.SDK}</div>

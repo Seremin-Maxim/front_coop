@@ -12,8 +12,9 @@ const [brand, setFormDataBrand] = useState({
     name: ''
   });
   const [product, setFormDataProduct] = useState({
-    name: '',
+    brand_name: '',
     brand_id: '',
+    product_name:'',
     SDK: '',
     price: '',
     stock: ''
@@ -105,7 +106,7 @@ const [brand, setFormDataBrand] = useState({
   const handleSubmitProduct = async (e) => {
     e.preventDefault();
     try {
-      const responseBrandID = await Axios.get(`/api/getbrandID/${product.name}`);
+      const responseBrandID = await Axios.get(`/api/getbrandID/${product.brand_name}`);
 
       const updatedProduct = {
         ...product,
@@ -125,18 +126,21 @@ const [brand, setFormDataBrand] = useState({
 
       const final_product = {};
       final_product.brand_id = updatedProduct.brand_id;
+      final_product.product_name = product.product_name;
       final_product.category_id = updatedCategoryID.category_id;
       final_product.SDK = product.SDK;
       final_product.price = product.price;
       final_product.stock = product.stock;
       console.log("final_product.brand_id = ", final_product.brand_id);
+      console.log("fianl prod_name : " + final_product.product_name);
       const responseFinalProd = await Axios.post(`/api/product/create/${final_product.category_id}/${final_product.brand_id}`, final_product);
 
       console.log("Ответ на отправку продукта: ", responseFinalProd);
 
       setFormDataProduct({
-        name: '',
+        brand_name: '',
         brand_id: '',
+        product_name:'',
         SDK: '',
         price: '',
         stock: ''
@@ -231,6 +235,14 @@ const [brand, setFormDataBrand] = useState({
     });
   };
 
+  const handleInputChangeProductName = (e) => {
+    const { name, value } = e.target;
+    setFormDataProduct({
+      ...product,
+      [name]: value
+    });
+  };
+
   const handleInputChangeProductCategory = (e) => {
     const { name, value } = e.target;
     setFormDataProductCategory({
@@ -300,9 +312,17 @@ const [brand, setFormDataBrand] = useState({
           <div className='create-labels'>Создание Продукта</div>
           <input
               type='text'
-              name='name'
+              name='product_name'
+              placeholder = 'Название'
+              value={product.product_name || ''}
+              onChange={handleInputChangeProductName}
+              className="input-brand-name" 
+            />
+          <input
+              type='text'
+              name='brand_name'
               placeholder = 'Бренд'
-              value={product.name || ''}
+              value={product.brand_name || ''}
               onChange={handleInputChangeProduct}
               className="input-brand-name" 
             />
