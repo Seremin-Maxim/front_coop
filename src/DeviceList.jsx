@@ -11,6 +11,7 @@ const DeviceList = (/*{ category_id }*/) => {
   const [devices, setDevices] = useState([]);
   const location = useLocation();
   const path = location.pathname;
+  localStorage.setItem("flag_SHC", false);
   useEffect(() => {
     const fetchDevices = async () => {
       try {

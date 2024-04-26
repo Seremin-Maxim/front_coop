@@ -28,8 +28,8 @@ const DeviceItemPage = () => {
     const fetchDescription = async () => {
       try {
         console.log(product_id);
-        const response = await Axios.get(`/api/productGetDescription/${product_id}`);
-        setDescription(response.data);
+        //const response = await Axios.get(`/api/productGetDescription/${product_id}`);
+        //setDescription(response.data);
         const responce_prod = await Axios.get(`/api/getProductById/${product_id}`);
         console.log(responce_prod);
         setProduct(responce_prod.data);

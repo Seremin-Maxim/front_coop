@@ -17,7 +17,7 @@ const ShoppingCartPage = () => {
         }
         const fetchSHKData = async () => {
           try {
-
+                
           } catch (error) {
             console.error('Ошибка при получении товаров в корзине:', error);
           }
