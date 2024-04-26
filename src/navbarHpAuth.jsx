@@ -63,6 +63,7 @@ const NavBarAuth = () => {
             <Link to="/signup" className='register-button'>Регистрация</Link>
           </div> :
           <div>
+            <Link to="/shoppingcart" className='login-button'>Корзина</Link>
             <Link to="/testing" className='login-button'>Admin</Link>
             <Link to="/profile" className='login-button'>Профиль</Link>
           </div>

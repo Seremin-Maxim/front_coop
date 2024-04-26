@@ -43,7 +43,7 @@ h2{
 }
 
 .shc-link{
-    grid-column: span 2;
+    grid-column: span 1;
 
     display: flex;
     align-items: center;
@@ -53,10 +53,11 @@ h2{
 .product-image {
     width: 100px;
     height: 100px;
+    margin: 0;
 }
 
 .product-name {
-    grid-column: span 5;
+    grid-column: span 6;
     font-size: 22px;
 
     display: flex;
@@ -186,72 +187,3 @@ h2{
 
 
 
-
-
-/* 
-.wrapper{
-    padding-top: 30px;
-}
-.product-list {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    margin: 0 auto;
-
-    width: 70%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 10px;
-}
-
-.product-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border: 1px solid #000;
-    width: 100%;
-}
-
-.product-image {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-}
-
-.product-name {
-    flex-grow: 1;
-    font-size: 22px;
-}
-
-.product-price {
-    color: #000;
-    font-weight: bold;
-    font-size: 18px;
-    padding-left: 30px;
-}
-
-.product-image span{
-    font-size: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.quantity{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.quantity button{
-    margin: 5px;
-    background-color: hsl(0, 0%, 91%);
-    border: none;
-    color: black;
-    padding: 8px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-} */
