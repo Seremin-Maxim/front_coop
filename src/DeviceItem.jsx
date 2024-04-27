@@ -59,14 +59,18 @@ const DeviceItem = ({ product }) => {
       const reqToSckDevice = {
         quantity: quantity,
         product_id: product.id,
-        shc_id: sch_id_plug
+        shc_id: sch_id_plug,
+        stock: product.stock
       };
       //let existingDevice = 1;
       const existingDevice = await Axios.get(`/api/getShoppingCartDevice/${product_id}`); // НЕ РАБОТАЕТ
-      console.log("MY_FLAG : " + existingDevice.data.product_exists);
+      //console.log("MY_FLAG : " + existingDevice.data.product_exists);
       if (existingDevice.data.product_exists) {
         //НЕ РАБОТАЕТ
-        const responseShcDevice = await Axios.put(`/api/shoppingCartDevice/update/${product_id}`, reqToSckDevice); 
+        const responseShcDevice = await Axios.put(`/api/shoppingCartDevice/update/${product_id}`, reqToSckDevice);
+        if(responseShcDevice.data.quantity_out_of_stock){
+          alert("Недостаточно товара на складе");
+        } 
       } else if(!existingDevice.data.product_exist){
         //РАБОТАЕТ
         const responseShcDevice = await Axios.post(`/api/shoppingCartDevice/create/${product_id}`, reqToSckDevice);
