@@ -14,7 +14,7 @@ const ShoppingCartPage = () => {
     const [product_ids, setProductIDs] = useState([]);
     const navigate = useNavigate();
     const shc_id = localStorage.getItem("sch_id");
-    console.log("shc_id = " + shc_id);
+    //console.log("shc_id = " + shc_id);
 
     const increaseQuantity = (id) => {
         setProductIDs(product_ids.map(item => item.product_id === id && item.quantity < products.find(product => product.id === id).stock ? { ...item, quantity: item.quantity + 1 } : item));
@@ -26,6 +26,16 @@ const ShoppingCartPage = () => {
 
     const totalCost = products.reduce((acc, product) => acc + product.price * (product_ids.find(item => item.product_id === product.id)?.quantity || 0), 0);
 
+
+    const deleteDevice = async (id) => {
+        try {
+            const response = await Axios.delete(`/api/deleteShCDevice/${id}`);
+            console.log(response.data);
+            setProductIDs(product_ids.filter(item => item.product_id !== id));
+        } catch (error) {
+            console.error('Ошибка при удалении устройства:', error);
+        }
+    };
 
     useEffect(() => {
         if (!token || token === undefined) {
@@ -87,7 +97,7 @@ const ShoppingCartPage = () => {
                                 <button onClick={() => increaseQuantity(product.id)}>+</button>
                             </div>
                             <div className="product-price">{product.price}руб.</div>
-                            <div className='clearDevice'><button>x</button></div>
+                            <div className='clearDevice'><button onClick={() => deleteDevice(product.id)}>x</button></div>
                         </div>
                     </div>
                 ))}

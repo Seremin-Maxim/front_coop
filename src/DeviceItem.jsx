@@ -11,7 +11,7 @@ const DeviceItem = ({ product }) => {
   const [flagForShc, setFlagForShc] = useState(false);
   const customer_id = localStorage.getItem("id");
   const [ShcID, setSchID] = useState({
-    id:''
+    id: ''
   });
   const [prod_info, setDescription] = useState({
     description: ''
@@ -34,33 +34,44 @@ const DeviceItem = ({ product }) => {
 
   const handleSubmitToSHC = async (e) => {
     let flag = localStorage.getItem("flag_SHC");
-    
+
     e.preventDefault();
     let responseSHC;
     try {
-      console.log("falg: " + flag + " " + localStorage.getItem("flag_SHC"));
-      if (!flag) {
+      let responseSHC_ID = await Axios.get(`/api/getSCHIDByCustomer/${customer_id}`);
+      //console.log("falg: " + flag + " " + localStorage.getItem("flag_SHC"));
+      if (!responseSHC_ID.data) {
         localStorage.setItem("flag_SHC", true);
-        console.log("falg1: " + localStorage.getItem("flag_SHC"));
+
+        //console.log("falg1: " + localStorage.getItem("flag_SHC"));
         //console.log("ID for SHC : " + customer_id);
+
         responseSHC = await Axios.post(`/api/shoppingCart/create/${customer_id}`);
         console.log("SUKA");
         localStorage.setItem("sch_id", responseSHC.data.id);
       }
+
       
-      let responseSHC_ID = await Axios.get(`/api/getSCHIDByCustomer/${customer_id}`);
       localStorage.setItem("sch_id", responseSHC_ID.data.id);
       setSchID(responseSHC_ID.data.id);
-      //console.log("id of shc in resp: " + responseSHC.data.id);
+
       let sch_id_plug = responseSHC_ID.data.id;
       const reqToSckDevice = {
         quantity: quantity,
         product_id: product.id,
         shc_id: sch_id_plug
       };
-      console.log("id in req: " + reqToSckDevice.shc_id);
-      const responseShcDevice = await Axios.post(`/api/shoppingCartDevice/create/${product_id}`, reqToSckDevice);
-      //console.log(reqToSckDevice.data);
+      //let existingDevice = 1;
+      const existingDevice = await Axios.get(`/api/getShoppingCartDevice/${product_id}`); // НЕ РАБОТАЕТ
+      console.log("MY_FLAG : " + existingDevice.data.product_exists);
+      if (existingDevice.data.product_exists) {
+        //НЕ РАБОТАЕТ
+        const responseShcDevice = await Axios.put(`/api/shoppingCartDevice/update/${product_id}`, reqToSckDevice); 
+      } else if(!existingDevice.data.product_exist){
+        //РАБОТАЕТ
+        const responseShcDevice = await Axios.post(`/api/shoppingCartDevice/create/${product_id}`, reqToSckDevice);
+      }
+
       setQuantity(1);
     } catch (error) {
       alert("Some porblems :(");
