@@ -28,7 +28,15 @@ const DeviceItem = ({ product }) => {
         console.error('Ошибка при получении описания товара:', error);
       }
     };
-
+    const checkDeviceInCart = async () => {
+      try {
+        const existingDevice = await Axios.get(`/api/getShoppingCartDevice/${product_id}`);
+        setAddedToCart(existingDevice.data.product_exists);
+      } catch (error) {
+        console.error('Ошибка при проверке наличия устройства в корзине:', error);
+      }
+    };
+    checkDeviceInCart();
     fetchDescription();
   }, [product.id]);
 
