@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import pic1 from './assets/item_pic.png';
-import pic2 from './assets/itemSL.jpeg'
+import pic2 from './assets/itemSL.jpeg';
 
 const DeviceItem = ({ product }) => {
   const [flagForShc, setFlagForShc] = useState(false);
@@ -18,7 +18,7 @@ const DeviceItem = ({ product }) => {
   });
   const product_id = product.id;
   const [quantity, setQuantity] = useState(1); // New state for quantity
-
+  const [addedToCart, setAddedToCart] = useState(false);
   useEffect(() => {
     const fetchDescription = async () => {
       try {
@@ -51,7 +51,7 @@ const DeviceItem = ({ product }) => {
         localStorage.setItem("sch_id", responseSHC.data.id);
       }
 
-      
+
       localStorage.setItem("sch_id", responseSHC_ID.data.id);
       setSchID(responseSHC_ID.data.id);
 
@@ -63,17 +63,17 @@ const DeviceItem = ({ product }) => {
         stock: product.stock
       };
       //let existingDevice = 1;
-      const existingDevice = await Axios.get(`/api/getShoppingCartDevice/${product_id}`); // НЕ РАБОТАЕТ
-      //console.log("MY_FLAG : " + existingDevice.data.product_exists);
+      const existingDevice = await Axios.get(`/api/getShoppingCartDevice/${product_id}`);
       if (existingDevice.data.product_exists) {
-        //НЕ РАБОТАЕТ
         const responseShcDevice = await Axios.put(`/api/shoppingCartDevice/update/${product_id}`, reqToSckDevice);
-        if(responseShcDevice.data.quantity_out_of_stock){
+        if (responseShcDevice.data.quantity_out_of_stock) {
           alert("Недостаточно товара на складе");
-        } 
-      } else if(!existingDevice.data.product_exist){
-        //РАБОТАЕТ
+        } else {
+          setAddedToCart(true); // Установите состояние в true после успешного добавления товара
+        }
+      } else if (!existingDevice.data.product_exist) {
         const responseShcDevice = await Axios.post(`/api/shoppingCartDevice/create/${product_id}`, reqToSckDevice);
+        setAddedToCart(true); // Установите состояние в true после успешного добавления товара
       }
 
       setQuantity(1);
@@ -92,13 +92,31 @@ const DeviceItem = ({ product }) => {
       <div>{product.product_name}</div>
       <div>Стоимость: {product.price} руб.</div>
       <div>В наличии: {product.stock}</div>
-      <div>
+      {addedToCart ?
+        <Link to={"/shoppingcart"}>
+          <button>
+            {'Добавлено'}
+          </button>
+        </Link>
+        :
+        <div className='card-button-wrapper'>
+          <div>
+            <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
+            <span>{quantity}</span>
+            <button onClick={() => setQuantity(quantity < product.stock ? quantity + 1 : quantity)}>+</button>
+          </div>
+          <button onClick={handleSubmitToSHC}>
+            {addedToCart ? 'Добавлено' : 'В корзину'}
+          </button>
+        </div>
+
+      }
+      {/* <div>
         <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
         <span>{quantity}</span>
         <button onClick={() => setQuantity(quantity < product.stock ? quantity + 1 : quantity)}>+</button>
 
-      </div>
-      <button onClick={handleSubmitToSHC} >Add to Cart</button>
+      </div> */}
     </div>
   );
 };

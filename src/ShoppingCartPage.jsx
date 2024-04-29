@@ -32,10 +32,12 @@ const ShoppingCartPage = () => {
             const response = await Axios.delete(`/api/deleteShCDevice/${id}`);
             console.log(response.data);
             setProductIDs(product_ids.filter(item => item.product_id !== id));
+            setProducts(products.filter(product => product.id !== id)); // Добавьте эту строку
         } catch (error) {
             console.error('Ошибка при удалении устройства:', error);
         }
     };
+    
 
     useEffect(() => {
         if (!token || token === undefined) {

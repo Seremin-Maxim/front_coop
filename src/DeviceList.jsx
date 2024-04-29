@@ -4,7 +4,9 @@ import { ListGroup, Row } from 'react-bootstrap';
 import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
 import axios from 'axios'; 
 import DeviceItem from './DeviceItem';
-
+import Carousel from './CardCarousel';
+import pic1 from './assets/item_pic.png';
+import pic2 from './assets/itemSL.jpeg'
 const DeviceList = (/*{ category_id }*/) => {
   const { category_id } = useParams(); 
   const {brand_id} = useParams();
@@ -47,12 +49,35 @@ const DeviceList = (/*{ category_id }*/) => {
   }, [category_id]);
 
   return (
-    <div className='devlist__items'>
-      {devices.map(device => (
-        <DeviceItem key={device.id} product={device} />
-      ))}
-    </div>
-  );
+      <div className="devlist__items">
+        {path == "/" ? (
+          <div className='carousel-grid-wrapper'>
+          <Carousel >
+            <img
+              src={pic1}
+              alt="placeholder"
+              
+            />
+            <img
+              src={pic2}
+              alt="placeholder"
+              
+            />
+            <img
+              src={pic1}
+              alt="placeholder"
+              
+            />
+          </Carousel>
+          </div>
+        ) : (
+          <div />
+        )}
+        {devices.map((device) => (
+          <DeviceItem key={device.id} product={device} />
+        ))}
+      </div>
+    );
 };
 
 export default DeviceList;

@@ -32,7 +32,7 @@ const HomePageAuth = () => {
   return (
     <div>
         <NavBarAuth/>
-        {path == '/' ? <CardCarousel/> : <div/>}
+        {/* {path == '/' ? <CardCarousel/> : <div/>} */}
         <div className="home-container">
               <div className="">
                 <DeviceList category_id={category_id}/>

@@ -11,7 +11,14 @@
     padding: 20px;
     margin-left: auto; /* Add left margin */
     margin-right: auto; /* Add right margin */
-    max-width: 70%; /* Limit the width of the grid */
+    max-width: 80%; /* Limit the width of the grid */
+    grid-auto-rows: 45%;
+
 }
+
+.carousel-grid-wrapper{
+    grid-column: span 2;
+}
+
 
 
