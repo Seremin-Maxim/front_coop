@@ -6,7 +6,10 @@ import axios from 'axios';
 import DeviceItem from './DeviceItem';
 import Carousel from './CardCarousel';
 import pic1 from './assets/item_pic.png';
-import pic2 from './assets/itemSL.jpeg'
+import pic2 from './assets/itemSL.jpeg';
+import sale from './assets/sale.jpeg';
+import sale2 from './assets/sale2.jpeg';
+import sale3 from './assets/sale3.jpeg';
 const DeviceList = (/*{ category_id }*/) => {
   const { category_id } = useParams(); 
   const {brand_id} = useParams();
@@ -54,17 +57,17 @@ const DeviceList = (/*{ category_id }*/) => {
           <div className='carousel-grid-wrapper'>
           <Carousel >
             <img
-              src={pic1}
+              src={sale2}
               alt="placeholder"
               
             />
             <img
-              src={pic2}
+              src={sale3}
               alt="placeholder"
               
             />
             <img
-              src={pic1}
+              src={sale}
               alt="placeholder"
               
             />
