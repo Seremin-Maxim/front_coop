@@ -1,14 +1,76 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './navbarHP.css';
 import { Link, useNavigate } from 'react-router-dom';
 import logo_pic from './assets/logo2.jpeg';
 import Axios from 'axios';
+import pic2 from './assets/itemSL.jpeg';
 const NavBarAuth = () => {
   const token = localStorage.getItem('token');
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
-  
+  let isValid;
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+  // const handleSearchChange = (e) => {
+  //   const value = e.target.value;
+  //   if (/^[а-яА-ЯёЁa-zA-Z0-9 ]+$/.test(value) || value === '') {
+  //     setSearchTerm({ name: value });
+  //   }
+  // };
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    if (value.trim()) {
+      setIsDropdownVisible(true);
+      handleSearch(value);
+    } else {
+      setIsDropdownVisible(false);
+      setSearchResults([]);
+    }
+  };
+
+  // Функция для скрытия выпадающего списка при клике вне его
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownVisible(false);
+    }
+  };
+
+
+
+  // const handleSearchSubmit = async () => {
+  //   console.log('Поиск:', searchTerm.name);
+  //   const params = {
+  //     name: searchTerm.name
+  //   }
+  //   try {
+  //     const response = await Axios.get("/api/getProductByName", { params });
+  //     if (response.data && response.data.product_name) {
+  //       setSearchResult(response.data); 
+  //     } else {
+  //       setSearchResult(null); 
+  //     }
+  //   } catch (error) {
+  //     //console.error('Ошибка при поиске товара:', error);
+  //     setSearchResult(null);
+  //   }
+  //   setSearchTerm({ name: '' });
+  // };
+
+  const handleSearch = async (value) => {
+    try {
+      const response = await Axios.get("/api/searchProducts", { params: { name: value } });
+      setSearchResults(response.data);
+    } catch (error) {
+      console.error('Ошибка при поиске товара:', error);
+      setSearchResults([]);
+    }
+  };
+
   useEffect(() => {
     const fetchCategoryData = async () => {
       try {
@@ -23,6 +85,15 @@ const NavBarAuth = () => {
     };
 
     fetchCategoryData();
+  }, []);
+
+  useEffect(() => {
+    // Добавление обработчика клика вне выпадающего списка
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Удаление обработчика при размонтировании компонента
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   return (
@@ -56,6 +127,33 @@ const NavBarAuth = () => {
         </ul>
 
       </nav>
+
+
+      <div className="search-container">
+          <input
+            type="text"
+            placeholder="Поиск товара..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="search-input"
+          />
+          {/* Удаление кнопки "Найти" */}
+          <div className="dropdown-content" ref={dropdownRef} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
+            {searchResults.length > 0 ? (
+              searchResults.map((result) => (
+                <div className="dropdown-item" key={result.id}>
+                  <img src={pic2} alt={result.product_name} />
+                  <span>{result.product_name}</span>
+                </div>
+              ))
+            ) : (
+              <div>Не найдено</div>
+            )}
+          </div>
+        </div>
+
+
+
       <div className="buttons-container">
         {token === undefined || !token ?
           <div>
