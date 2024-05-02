@@ -142,8 +142,10 @@ const NavBarAuth = () => {
             {searchResults.length > 0 ? (
               searchResults.map((result) => (
                 <div className="dropdown-item" key={result.id}>
+                  <Link to={`/item/${result.id}`}>
                   <img src={pic2} alt={result.product_name} />
                   <span>{result.product_name}</span>
+                  </Link>
                 </div>
               ))
             ) : (
