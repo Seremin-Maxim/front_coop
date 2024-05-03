@@ -6,14 +6,20 @@
     padding-left: 20px; */
     /* justify-content: center; */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* This will limit to maximum 5 cards in a row */
-    gap: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
     margin-left: auto; /* Add left margin */
     margin-right: auto; /* Add right margin */
     max-width: 80%; /* Limit the width of the grid */
+    grid-auto-flow: row; 
 
+}
+
+@media screen and (max-width: 600px) {
+    .devlist__items {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }
 
 .carousel-grid-wrapper{

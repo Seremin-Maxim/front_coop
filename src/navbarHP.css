@@ -255,3 +255,7 @@ ul {
 .dropdown-item span {
   vertical-align: middle;
 }
+
+.shopping-cart-button{
+  padding: 7px 16px;
+}

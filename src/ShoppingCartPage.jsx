@@ -37,7 +37,7 @@ const ShoppingCartPage = () => {
             console.error('Ошибка при удалении устройства:', error);
         }
     };
-    
+
 
     useEffect(() => {
         if (!token || token === undefined) {
@@ -75,7 +75,7 @@ const ShoppingCartPage = () => {
             fetchProducts();
         }
     }, [product_ids]);
-
+    //console.table(products);
     return (
         <div>
             <div>{<NavBarAuth />}</div>
@@ -89,7 +89,7 @@ const ShoppingCartPage = () => {
                         <div className="product-list">
                             <div className='shc-link'>
                                 <a href={`/item/${product.id}`}>
-                                    <img className="product-image" src={pic2} alt={product.product_name} />
+                                    <img className="product-image" src={`http://localhost:3000/static/${product.img}`} alt={product.product_name} />
                                 </a>
                             </div>
                             <div className="product-name">{product.product_name}</div>
@@ -110,7 +110,15 @@ const ShoppingCartPage = () => {
                                 <span className='final-cost-text'>Итого: </span>
                                 <span className='final-cost-sum'>{totalCost} руб.</span>
                             </div>
-                            <div className='finalcost-child-element'><button>Оформить заказ</button></div>
+                            <div className='finalcost-child-element'>
+                                <Link 
+                                    to={{pathname: "/order"}}
+                                    state={{ products: products, product_ids: product_ids }}
+                                >
+                                    <button onClick={() => console.log("products", products)}>Оформить заказ</button>
+                                </Link>
+
+                            </div>
                         </div>
 
                     </div>
