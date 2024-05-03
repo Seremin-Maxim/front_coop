@@ -17,11 +17,11 @@
     text-align: center;
     color : black;
     /* margin-left: 20px; */
-    /* margin-top: 10px; */
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 10px;
+    /* justify-content: space-between;
+    padding-bottom: 10px; */
   }
 
 .item-card img {
@@ -47,11 +47,11 @@
   }
 
   .item-card button {
-    margin: 5px;
-    background-color: hsl(249, 20%, 11%);/* Green */
+    /* margin: 5px; */
+    background-color: white;/* Green */
     border: none;
-    color: white;
-    padding: 10px 15px;
+    color: hsl(249, 20%, 11%);
+    padding: 10px 19px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -62,19 +62,42 @@
   
   .item-card button:hover {
     background-color: hsl(249, 20%, 11%);
+    color:white
   }
   
   .item-card div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    justify-content: space-evenly;
+    /* align-items: center; */
   }
   
   .item-card span {
-    margin: 0 10px;
+    align-self: center;
   }
   
   .card-button-wrapper{
     display: flex;
-    flex-direction: column;
+    border-top: 1px outset #ccc;
+    /* flex-direction: column; */
+  }
+  .counter{
+    display: grid;
+    width: 50%;
+    grid-template-columns: repeat(3, 1fr);
+    border-right: 1px solid #ccc;
+  }
+  .button-add-bucket{
+    width: 50%;
+  }
+  .button.minus-plus-button{
+    padding: 14px 16px;
+  
+  }
+  .button.in-bucket-button {
+    width: 77%;
+    height: 59%;
+}
+  button.add-button {
+    width: 89%;
+    height: 72%;
   }

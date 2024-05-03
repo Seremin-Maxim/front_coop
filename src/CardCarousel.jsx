@@ -11,37 +11,45 @@ const Carousel = (props) => {
     }, [children]);
   
     const next = () => {
-      setCurrentIndex((prevState) => (prevState + 1) % length);
+      if (currentIndex === length - 1) {
+        setCurrentIndex(0);
+      } else {
+        setCurrentIndex(currentIndex + 1);
+      }
     };
   
     const prev = () => {
-      setCurrentIndex((prevState) => (prevState - 1 + length) % length);
+      if (currentIndex === 0) {
+        setCurrentIndex(length - 1);
+      } else {
+        setCurrentIndex(currentIndex - 1);
+      }
     };
   
     return (
-        <div className="carousel-container">
-            <div className="carousel-wrapper">
-                <button onClick={prev} className="left-arrow">
-                    &lt;
-                </button>
-                <div className="carousel-content-wrapper">
-                    <div
-                        className="carousel-content"
-                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                    >
-                        {children.concat(children)} {/* Дублируем элементы */}
-                    </div>
-
-                </div>
-                <button onClick={next} className="right-arrow">
-                    &gt;
-                </button>
+      <div className="carousel-container">
+        <div className="carousel-wrapper">
+          <button onClick={prev} className="left-arrow">
+          &lt;
+          </button>
+          <div className="carousel-content-wrapper">
+            <div
+              className="carousel-content"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {children}
             </div>
+          </div>
+          <button onClick={next} className="right-arrow">
+           &gt;
+          </button>
         </div>
+      </div>
     );
   };
   
   export default Carousel;
+
 
 
 

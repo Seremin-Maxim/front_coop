@@ -183,3 +183,79 @@ ul {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: hsla(0, 0%, 8%, 0.624);}
+
+.search-container {
+  position: relative;
+  width: 250px; /* Используйте width вместо size */
+}
+
+.search-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%; /* Установите начальную ширину */
+  transition: width 0.4s ease-in-out; /* Плавное изменение ширины */
+}
+
+.search-input:focus {
+  width: 300px; /* Увеличение ширины поля поиска при фокусировке */
+}
+
+
+.search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: none;
+  background: #ddd;
+  padding: 0.5rem;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #ccc;
+}
+
+/* Добавьте эти стили в ваш navbarHP.css файл */
+
+.dropdown-content-search {
+  display: none; /* Скрыть dropdown по умолчанию */
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 230px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.search-container:hover .dropdown-content-search {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item img {
+  width: 50px; 
+  height: 50px; 
+  margin-right: 10px;
+}
+
+.dropdown-item span {
+  vertical-align: middle;
+}
+
+.shopping-cart-button{
+  padding: 7px 16px;
+}
