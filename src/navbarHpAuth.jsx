@@ -132,29 +132,29 @@ const NavBarAuth = () => {
 
 
       <div className="search-container">
-          <input
-            type="text"
-            placeholder="Поиск товара..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="search-input"
-          />
-          {/* Удаление кнопки "Найти" */}
-          <div className="dropdown-content" ref={dropdownRef} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-            {searchResults.length > 0 ? (
-              searchResults.map((result) => (
-                <div className="dropdown-item" key={result.id}>
-                  <Link to={`/item/${result.id}`}>
+        <input
+          type="text"
+          placeholder="Поиск товара..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="search-input"
+        />
+        {/* Удаление кнопки "Найти" */}
+        <div className="dropdown-content" ref={dropdownRef} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
+          {searchResults.length > 0 ? (
+            searchResults.map((result) => (
+              <div className="dropdown-item" key={result.id}>
+                <Link to={`/item/${result.id}`}>
                   <img src={pic2} alt={result.product_name} />
                   <span>{result.product_name}</span>
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <div>Не найдено</div>
-            )}
-          </div>
+                </Link>
+              </div>
+            ))
+          ) : (
+            <div>Не найдено</div>
+          )}
         </div>
+      </div>
 
 
 
@@ -165,8 +165,8 @@ const NavBarAuth = () => {
             <Link to="/signup" className='register-button'>Регистрация</Link>
           </div> :
           <div>
-                        <Link to="/shoppingcart" className="shopping-cart-button">
-              <FontAwesomeIcon icon={faShoppingCart} size="2x" color="white"/>
+            <Link to="/shoppingcart" className="shopping-cart-button">
+              <FontAwesomeIcon icon={faShoppingCart} size="2x" color="white" />
             </Link>
             <Link to="/testing" className='login-button'>Admin</Link>
             <Link to="/profile" className='login-button'>Профиль</Link>

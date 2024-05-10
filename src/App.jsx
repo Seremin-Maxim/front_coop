@@ -18,6 +18,7 @@ import CategoryMenu from './CategoryMenu';
 import BrandMenu from './BrandMenu';
 import CardCarousel from './CardCarousel';
 import ShoppingCartPage from './ShoppingCartPage';
+import OrderPage from './OrderPage';
 const App = () => {
   const [data, setData] = useState("");
 
@@ -51,6 +52,7 @@ const App = () => {
         <Route path='/brands/:brand_id' element = {<HomePageAuth/>}/>
         <Route path='/kaka' element={<CardCarousel/>}/>
         <Route path='/shoppingcart' element={<ShoppingCartPage/>}/>
+        <Route path='/order' element={<OrderPage/>}/>
     </Routes>
   </Router>
   );

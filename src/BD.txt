@@ -12,7 +12,7 @@ SELECT ALL name FROM "Brands";  => SELECT DISTINCT name FROM "Brands";
 Выборка с использование КЕЙС
 SELECT "SDK", price,                
     CASE
-        WHEN price < 100 THEN 9999
+        WHEN price < 150 THEN 9999
         ELSE price
     END AS new_price FROM "Products";
 
@@ -86,10 +86,24 @@ WHERE price < 200;
 SELECT AVG(orice) FROM "Products"
 WHERE price > 200;
 
+SELECT MAX(price) FROM "Products"
+WHERE name LIKE 'Apple';
 
 
 6. Агрегирование данных без и с использованием фразы GROUP BY. Фраза
 HAVING.
+
+SELECT category_id
+FROM "Products"
+GROUP BY category_id;
+
+кол-во категорий, в которых более 1 товара
+SELECT category_id, COUNT(*)
+FROM "Products"
+GROUP BY category_id
+HAVING COUNT(*) > 1;
+
+
 
 
 
