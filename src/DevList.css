@@ -1,12 +1,6 @@
 .devlist__items {
-    /* grid-column: 10 span;
-    display: flex;
-    flex-wrap: wrap;
-    
-    padding-left: 20px; */
-    /* justify-content: center; */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     margin-left: auto; /* Add left margin */
@@ -16,22 +10,7 @@
 
 }
 
-@media screen and (max-width: 600px) {
-    .devlist__items {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-}
 
-.carousel-grid-wrapper{
-    /* grid-column: span 4; */
-    grid-column: 1 / -1;
-}
-
-.carousel-grid-wrapper img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
 
 
 

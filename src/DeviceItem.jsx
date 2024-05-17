@@ -111,31 +111,37 @@ const DeviceItem = ({ product }) => {
 
   return (
     <div className="item-card">
-      <Link to={`/item/${product.id}`}>
-        <img
-          src={`http://localhost:3000/static/${product.img}`}
-          alt={product.product_name}
-        />
-      </Link>
-      <div>{product.product_name}</div>
-      <div>Стоимость: {product.price} руб.</div>
-      <div>В наличии: {product.stock}</div>
+      <div className="product-card-image">
+        <Link to={`/item/${product.id}`}>
+          <img
+            src={`http://localhost:3000/static/${product.img}`}
+            alt={product.product_name}
+          />
+        </Link>
+      </div>
+      <div className="product-info">
+        <div>{product.product_name}</div>
+        <div>Стоимость: {product.price} руб.</div>
+        <div>В наличии: {product.stock}</div>
+      </div>
       {addedToCart ? (
         <Link to={"/shoppingcart"}>
-          <button className="add-button">{"Добавлено"}</button>
+          <div className="add-button-place">
+            <button className="add-button">{"Добавлено"}</button>
+          </div>
         </Link>
       ) : (
         <div className="card-button-wrapper">
           <div className="counter">
             <button
-              className="minus-plus-button button"
+              className="counter-button minus-button"
               onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
             >
               -
             </button>
             <span>{quantity}</span>
             <button
-              className="minus-plus-button button"
+              className="counter-button plus-button"
               onClick={() =>
                 setQuantity(quantity < product.stock ? quantity + 1 : quantity)
               }
@@ -153,12 +159,6 @@ const DeviceItem = ({ product }) => {
           </div>
         </div>
       )}
-      {/* <div>
-        <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
-        <span>{quantity}</span>
-        <button onClick={() => setQuantity(quantity < product.stock ? quantity + 1 : quantity)}>+</button>
-
-      </div> */}
     </div>
   );
 };
