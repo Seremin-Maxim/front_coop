@@ -146,6 +146,7 @@
   font-size: 25px;
   margin-top: 10px;
   width: 40%;
+  margin-bottom: 30px;
 }
 
 .orders-list{
@@ -164,6 +165,8 @@
   grid-template-columns: repeat(10, 1fr);
   padding-bottom: 10px;
   padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
 .orders-list-item-product img{
@@ -175,11 +178,77 @@
 .orders-list-item-product-name{
   display: flex;
   justify-content: flex-start;
-  grid-column: span 6;
+  align-items: center;
+  grid-column: span 4;
   padding-left: 10px;
 }
 
 .orders-list-item-product-price{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-column: span 3;
 }
+
+.orders-list-item-product-quantity{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: span 2;
+}
+
+.order-list-price-wrapper{
+  display: flex;
+   border-top:#000 1px solid;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.order-list-price-text{
+  display: flex;
+  flex-direction: row;
+}
+
+.order-list-price-btn{
+  background-color: #fff;
+  border: none;
+  color: rgb(175, 50, 50);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.order-list-price-btn:hover{
+  color: rgb(135, 2, 2);
+}
+
+.order-list-price-btn-info{
+  background-color: #fff;
+  border: none;
+  color: rgb(133, 0, 173);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.order-list-price-btn-info:hover{
+  color: rgb(119, 2, 135);
+}
+
+
+
+.order-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: #000 1px solid;
+}
+
+.order-header span{
+  color: rgb(56, 0, 98);
+}
+
+
 
