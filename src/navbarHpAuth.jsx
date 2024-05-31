@@ -23,6 +23,9 @@ const NavBarAuth = () => {
   //   }
   // };
 
+
+  //ff
+
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
